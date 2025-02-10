@@ -303,7 +303,7 @@ class TTSManager:
 
         stream = self.streaming if stream is None else stream
 
-        headers = {"Authorization": f"Bearer {self.config.tts.key}"}
+        headers = {"Authorization": f"Bearer {self.config.tts.key}", "x-wait-for-model": "true"}
         data = {"model": self.config.tts.name, "input": text, "voice": "alloy", "response_format": "opus"}
 
         try:
